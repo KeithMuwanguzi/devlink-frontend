@@ -38,25 +38,22 @@ export default function Home() {
 
   const handleSectionChange = (section: string) => {
     setActiveSection(section);
-    setIsMobileMenuOpen(false); // Close mobile menu when changing sections
+    setIsMobileMenuOpen(false);
   };
-
-  if (isLoading) {
-    return (
-      <FullScreenLoader
-        isLoading={isLoading}
-        loadingText="Loading Application..."
-        loadingSubtext="Setting up your dashboard, please wait..."
-        variant="spinner"
-        size="xl"
-        blur="xl"
-        opacity="light"
-      />
-    );
-  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-cyan-50 relative overflow-hidden">
+      {isLoading && (
+        <FullScreenLoader
+          isLoading={isLoading}
+          loadingText="Loading Application"
+          loadingSubtext="Setting up your application, please wait..."
+          variant="spinner"
+          size="xl"
+          blur="sm"
+          opacity="dark"
+        />
+      )}
       {/* Background Elements */}
       <div className="absolute inset-0 opacity-40">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_25%,rgba(99,102,241,0.1),transparent_50%)]"></div>
