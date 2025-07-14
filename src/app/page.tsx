@@ -8,12 +8,16 @@ import FeaturesSection from "./WelcomeComponents/FeaturesSection";
 import SupportSection from "./WelcomeComponents/SupportSection";
 import ContactSection from "./WelcomeComponents/ContactSection";
 import Login from "./(features)/Authentication/Login";
+import Signup from "./(features)/Authentication/Signup";
+import ViewDemo from "./(features)/PortfolioSetup/ViewDemo";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const [isLoginOpen, setIsLoginOpen] = useState(false);
+  const [isSignupOpen, setIsSignupOpen] = useState(false);
+  const [isViewDemoOpen, setIsViewDemoOpen] = useState(false)
 
   useEffect(() => {
     setTimeout(() => {
@@ -250,14 +254,14 @@ export default function Home() {
 
                 <div className="flex flex-1 justify-between gap-4 mb-6">
                   <button 
-                    onClick={() => setIsLoginOpen(true)}
+                    onClick={() => setIsSignupOpen(true)}
                     className="flex-1 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-medium text-sm py-2 px-4 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
                   >
                     Create Portfolio
                   </button>
 
                   <button 
-                    onClick={() => setIsLoginOpen(true)}
+                    onClick={() => setIsViewDemoOpen(true)}
                     className="flex-1 bg-gray-50 hover:bg-gray-100 text-gray-700 font-medium text-sm py-2 px-4 rounded-lg transition-all duration-200 border border-gray-200"
                   >
                     View Demo
@@ -284,6 +288,8 @@ export default function Home() {
 
       {/* Login Overlay */}
       {isLoginOpen && <Login onClose={() => setIsLoginOpen(false)} />}
+      {isSignupOpen && <Signup onClose={() => setIsSignupOpen(false)} />}
+      {isViewDemoOpen && <ViewDemo onClose={() => setIsViewDemoOpen(false)} />}
     </div>
   );
 }
