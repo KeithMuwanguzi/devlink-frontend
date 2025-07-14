@@ -70,7 +70,7 @@ const SignUp = ({ onClose }: SignUpProps) => {
           <Lock className="w-5 h-5 text-purple-500 mr-2" />
           <input
             type="password"
-            placeholder="••••••••"
+            placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             className="bg-transparent w-full outline-none text-sm text-gray-700"
