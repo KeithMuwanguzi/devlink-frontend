@@ -2,6 +2,7 @@
 
 import { Mail, Lock } from "lucide-react";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 interface LoginProps {
   onClose: () => void;
@@ -10,6 +11,7 @@ interface LoginProps {
 const Login = ({ onClose }: LoginProps) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const router = useRouter();
 
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50 bg-black/40 backdrop-blur-sm animate-in fade-in">
@@ -54,6 +56,7 @@ const Login = ({ onClose }: LoginProps) => {
 
         {/* Login Button */}
         <button
+        onClick={()=> router.push("/Dashboard")}
           className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white py-2 rounded-lg font-semibold transition-all shadow-md hover:shadow-lg"
         >
           Login
